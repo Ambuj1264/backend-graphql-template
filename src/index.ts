@@ -3,7 +3,7 @@ import { ApolloServer } from "@apollo/server";
 import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHttpServer";
 import bodyParser from "body-parser";
 import cors from "cors";
-import express from "express";
+import express,{Request,Response} from "express";
 import { expressMiddleware } from "@apollo/server/express4";
 import http from "http";
 import path from "path";
@@ -31,6 +31,9 @@ const startServer = async () => {
   router.use(express.static(publicPath));
   router.use(express.json());
   router.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
+  router.get('/', (req: Request, res: Response) => {
+     res.send('Express Typescript on Vercel')
+  })
   router.use(
     fileUpload({
       useTempFiles: true,
