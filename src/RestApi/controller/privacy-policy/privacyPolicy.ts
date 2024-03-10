@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import Users from "../../../database/model/user";
 
 const privacyPolicy = {
   PP: (req: Request, res: Response) => {
@@ -83,6 +84,47 @@ const privacyPolicy = {
         
         `);
   },
+  createUserByProvider: async (req: Request, res: Response) => {
+    try {
+      // Check if user already exists
+      const lowercaseLoginName = req.body.email?.toLowerCase();
+      const findUser: any = await Users.findOne({
+        email: lowercaseLoginName,
+        isDeleted: false,
+      });
+
+      if (findUser) {
+        res
+          .status(200)
+          .send({ success: true, message: "found", data: findUser });
+      } else {
+        // Create a new user
+        const createUser = await Users.create({
+          email: req.body.email.trim().toLowerCase(),
+          name: req.body.name?.trim(),
+          image: req.body.image,
+        });
+
+        // Save the created user
+        const result = await createUser.save();
+
+        if (!result) {
+          throw new Error("User was not created");
+        } else {
+          res
+            .status(200)
+            .send({ success: true, message: "created", data: result });
+        }
+      }
+    } catch (error: any) {
+      throw new Error(error.message); // Throw error message
+    }
+  },
 };
 
 export { privacyPolicy };
+export interface UserInterface {
+  email: string;
+  name: string;
+  image: string;
+}

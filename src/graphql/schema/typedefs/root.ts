@@ -11,7 +11,7 @@ export const root = `
   changePassword(password: String!, email:String!): User
   createUser(input : CreateUser): User
   fogetPassword(input: forgetInput): User
-
+  createUserByProvider(email:String!, name: String!, image: String): User
  }
   # Scalar Definitions
   scalar DateTime

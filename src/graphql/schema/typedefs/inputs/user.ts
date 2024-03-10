@@ -8,7 +8,6 @@ export const userInput = `
     email: String!
     password: String!
     isDeleted:Boolean
-    mobileNumber: String
     name: String
     role: String
   }

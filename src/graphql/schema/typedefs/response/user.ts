@@ -14,6 +14,7 @@ type UserResponse {
     isDeleted:Boolean
     name: String
     role: String
+    token:String
 }
 type VerifyTokenResponse{
     oid: String

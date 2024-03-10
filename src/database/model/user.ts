@@ -11,7 +11,6 @@ const contactSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: true,
     },
    
     isDeleted: {
@@ -24,9 +23,10 @@ const contactSchema = new mongoose.Schema(
       enum: ["1", "2"], // Possible values for role field // 1 for the admin , 2 for the user
       default: "2",
     },
-    approved: {
-      type: Boolean,
-    },
+    image:{
+      type: String
+    }
+   
   },
   {
     timestamps: true,

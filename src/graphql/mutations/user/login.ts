@@ -21,6 +21,47 @@ export const createUser = async (_: any, input: { input: CreateUserInput }) => {
   }
 };
 
+export interface UserInterface {
+  email: string;
+  name: string;
+  image: string;
+}
+export const createUserByProvider = async (
+  _: any,
+  { email, name, image }: UserInterface // Use UserInterface instead of any for type checking
+) => {
+  console.log(email, name, image); // Removed unnecessary string interpolation
+  try {
+    // Check if user already exists
+    const lowercaseLoginName = email?.toLowerCase();
+    const findUser: any = await Users.findOne({
+      email: lowercaseLoginName,
+      isDeleted: false,
+    });
+    
+    if (findUser) {
+      return findUser; // Return the found user
+    } else {
+      // Create a new user
+      const createUser = await Users.create({
+        email: email.trim().toLowerCase(),
+        name: name?.trim(),
+        image: image,
+      });
+      
+      // Save the created user
+      const result = await createUser.save();
+
+      if (!result) {
+        throw new Error("User was not created");
+      } else {
+        return result; // Return the created user
+      }
+    }
+  } catch (error:any) {
+    throw new Error(error.message); // Throw error message
+  }
+};
 interface UserDuplicationResult {
   emailIsDuplicated: boolean;
   errorMessage?: string;
@@ -78,7 +119,7 @@ export const fogetPassword = async (_: any, input: { input: any }) => {
         password: hashedPassword,
       }
     );
-    
+
     return updateTheUser;
   } catch (error: any) {
     throw new Error(error.message);
