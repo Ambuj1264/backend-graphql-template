@@ -7,14 +7,14 @@ import express,{Request,Response} from "express";
 import { expressMiddleware } from "@apollo/server/express4";
 import http from "http";
 import path from "path";
-import { resolvers } from "./graphql";
-import { typeDefs } from "./graphql/schema/typedefs";
+import { resolvers } from "./src/graphql";
+import { typeDefs } from "./src/graphql/schema/typedefs";
 import yenv from "yenv";
 import fileUpload from "express-fileupload";
-require("./config/connection");
-import route from "./RestApi/restRoute";
+require("./src/config/connection");
+import route from "./src/RestApi/restRoute";
 
-import { authMiddleware } from "./graphql/schema";
+import { authMiddleware } from "./src/graphql/schema";
 const startServer = async () => {
   yenv("env.yaml", { env: "development" });
   const router = express();
