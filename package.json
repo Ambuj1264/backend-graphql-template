@@ -9,7 +9,8 @@
     "format": " npm run lint -- --fix",
     "prepare": "husky install",
     "exec": "npx ts-node ./src/index.ts",
-    "start": "npx nodemon"
+    "start": "npx nodemon",
+    "vercel-build":"echo hello"
   },
   "lint-staged": {
     "src/**/*.{.ts,.tsx}": "npm run lint",
