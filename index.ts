@@ -70,15 +70,20 @@ const startServer = async () => {
     // expressMiddleware(server, {})
   );
 
-  await new Promise<void>((resolve) =>
-    httpServer.listen(
-      {
-        port: 5001,
-      },
-      resolve
-    )
-  );
-  // tslint:disable-next-line
-  console.log("🚀 Server ready at http://localhost:5001/graphql");
+  // await new Promise<void>((resolve) =>
+  //   httpServer.listen(
+  //     {
+  //       port: 5001,
+  //     },
+  //     resolve
+  //   )
+  // );
+ 
+ 
+
+  router.listen(5001,()=>{
+     // tslint:disable-next-line
+    console.log("🚀 Server ready at http://localhost:5001/graphql");
+  })
 };
 startServer();
