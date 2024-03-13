@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "rootDirs": ["/src/index.ts"],
     "outDir": "build",
     "lib": ["es2020"],
     "target": "es2020",

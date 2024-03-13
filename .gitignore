@@ -18,3 +18,4 @@ package-lock.json
 .eslintignore
 .eslintrc.js
 src/public/upload
+.vercel

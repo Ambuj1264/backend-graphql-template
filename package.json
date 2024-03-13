@@ -2,15 +2,16 @@
   "name": "fb-tool-node",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "tslint -c tslint.json -p tsconfig.json",
     "format": " npm run lint -- --fix",
     "prepare": "husky install",
-    "exec": "npx ts-node index.ts",
-    "start": "npx nodemon",
-    "vercel-build":"echo hello"
+    "exec": "npx ts-node src/index.ts",
+    "dev": "npx nodemon",
+    "start": "node dist/index.js",
+    "build": "tsc"
   },
   "lint-staged": {
     "src/**/*.{.ts,.tsx}": "npm run lint",
