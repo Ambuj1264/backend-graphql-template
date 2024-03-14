@@ -32,7 +32,7 @@ const startServer = async () => {
   router.use(express.json());
   router.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
   router.get("/", (_req: Request, res: Response) => {
-    return res.send("Express Typescript on Vercel");
+   res.send("Express Typescript on Vercel");
   });
   router.use(
     fileUpload({
