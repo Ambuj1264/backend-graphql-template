@@ -82,7 +82,7 @@ const startServer = async () => {
 
   router.listen(5000, () => {
     // tslint:disable-next-line
-    console.log("🚀 Server ready at http://localhost:5001/graphql");
+    console.log("🚀 Server ready at http://localhost:5000/graphql");
   });
 };
 startServer();

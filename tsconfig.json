@@ -1,30 +1,17 @@
 {
   "compilerOptions": {
-    "rootDirs": ["/src/index.ts"],
-    "outDir": "build",
-    "lib": ["es2020"],
-    "target": "es2020",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "types": ["node"],
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "resolveJsonModule": true,                          
-    "allowJs": true,                                   
-    "checkJs": true,                                
-    "forceConsistentCasingInFileNames": true,          
-    "strict": true,       
-    "strictPropertyInitialization": false,                               
-    "noImplicitAny": true,                               
-    "strictNullChecks": true,                         
-    "alwaysStrict": true,                           
-    "noUnusedLocals": true,                          
-    "noImplicitReturns": true,                        
-    "skipLibCheck": true,      
-    "module": "commonjs",   
-    "paths": {
-      "*": ["node_modules/*", "src/types/*"]
-  }                     
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "target": "es6",
+      "noImplicitAny": true,
+      "moduleResolution": "node",
+      "sourceMap": true,
+      "outDir": "dist",
+      "baseUrl": ".",
+      "paths": {
+          "*": ["node_modules/*", "src/types/*"]
+      }
   },
-  "include": ["./src/**/*"],
-}
+  "include": ["./src/**/*"]
+  }
