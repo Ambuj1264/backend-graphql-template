@@ -2,12 +2,8 @@
   "name": "fb-tool-node",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.ts",
+  "main": "server.ts",
   "scripts": {
-    "format": " npm run lint -- --fix",
-    "prepare": "husky install",
-    "exec": "npx ts-node src/index.ts",
-    "dev": "npx nodemon",
     "start": "nodemon src/index.ts",
     "build": "rimraf dist && tsc",
     "ts.check": "tsc --project tsconfig.json",
