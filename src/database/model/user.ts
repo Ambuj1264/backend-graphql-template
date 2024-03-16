@@ -12,21 +12,26 @@ const contactSchema = new mongoose.Schema(
     password: {
       type: String,
     },
-   
+
     isDeleted: {
       type: Boolean,
       default: false,
     },
-   
+
     role: {
       type: String,
       enum: ["1", "2"], // Possible values for role field // 1 for the admin , 2 for the user
       default: "2",
     },
     image: {
-      type: String
-    }
-   
+      type: String,
+    },
+    subscribed: {
+      type: Boolean,
+    },
+    approved: {
+      type: Boolean,
+    },
   },
   {
     timestamps: true,

@@ -13,7 +13,7 @@ import yenv from "yenv";
 import fileUpload from "express-fileupload";
 require("./config/connection");
 import route from "./RestApi/restRoute";
-
+import paymentRoute from "./RestApi/controller/payment/paymentCheckout";
 import { authMiddleware } from "./graphql/schema";
 const startServer = async () => {
   yenv("env.yaml", { env: "development" });
@@ -29,10 +29,11 @@ const startServer = async () => {
 
   const publicPath = path.join(__dirname, "public");
   router.use(express.static(publicPath));
+  router.use("/api", paymentRoute);
   router.use(express.json());
   router.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
   router.get("/", (_req: Request, res: Response) => {
-   res.send("Express Typescript on Vercel");
+    res.send("Express Typescript on Vercel");
   });
   router.use(
     fileUpload({
@@ -61,7 +62,7 @@ const startServer = async () => {
     expressMiddleware(server, {
       context: async ({ req, res }) => {
         const { loginId, userId } = await authMiddleware(req);
-        
+
         return {
           loginId,
           userId,

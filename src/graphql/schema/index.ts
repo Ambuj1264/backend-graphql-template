@@ -16,6 +16,9 @@ export const authMiddleware = async (req: any): Promise<any> => {
     req?.body?.query?.includes("createUser(") ||
     req?.body?.query?.includes("createUserByProvider(") ||
     req?.body?.query?.includes("FindDemoToolDetails(") ||
+    req?.body?.query?.includes("paymentCheckout(") ||
+    req?.body?.query?.includes("subscriptionApproval(") ||
+    req?.body?.query?.includes("subscriptionCheckByUser(") ||
     req?.body?.query?.includes("fogetPassword(");
   // skip authorization check for signup mutation
   if (isSignupMutation) {

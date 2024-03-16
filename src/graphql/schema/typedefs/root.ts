@@ -14,6 +14,9 @@ export const root = `
   fogetPassword(input: forgetInput): User
   createUserByProvider(email:String!, name: String!, image: String): User
   createDemoDetails(input : DemoInput): DemoResponse
+  paymentCheckout (userId: String!): JSON
+  subscriptionCheckByUser(userId: String!): User 
+  subscriptionApproval(userId: String!, type:String!): User
  }
   # Scalar Definitions
   scalar DateTime
