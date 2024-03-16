@@ -4,6 +4,7 @@ export const root = `
     login(input : CreateUserInput): UserResponse
     sendMailForForgetPassword (email: String!): String
     verifyToken(token: String!): VerifyTokenResponse
+    FindDemoToolDetails(toolUniqueName: String!): DemoResponse
   }
   
   # Mutation Definitions  
@@ -12,6 +13,7 @@ export const root = `
   createUser(input : CreateUser): User
   fogetPassword(input: forgetInput): User
   createUserByProvider(email:String!, name: String!, image: String): User
+  createDemoDetails(input : DemoInput): DemoResponse
  }
   # Scalar Definitions
   scalar DateTime

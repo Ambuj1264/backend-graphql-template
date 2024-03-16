@@ -1,20 +1,25 @@
 {
-  "name": "fb-tool-node",
+  "name": "socialmotion",
   "version": "1.0.0",
   "description": "",
-  "main": "server.ts",
+  "main": "src/index.ts",
   "scripts": {
-    "start": "nodemon src/index.ts",
-    "build": "rimraf dist && tsc",
-    "ts.check": "tsc --project tsconfig.json",
-    "add-build": "git add dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "format": " npm run lint -- --fix",
+    "prepare": "husky install",
+    "exec": "npx ts-node ./src/index.ts",
+    "start": "npx nodemon"
   },
-  "pre-commit": [
-    "ts.check",
-    "build",
-    "add-build"
-  ],
+  "lint-staged": {
+    "src/**/*.{.ts,.tsx}": "npm run lint",
+    "src/**/*.ts": "npm run lint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -39,11 +44,7 @@
     "express-fileupload": "^1.4.1",
     "husky": "^8.0.3",
     "jsonwebtoken": "^9.0.1",
-    "mongoose": "^8.0.2",
-    "morgan": "^1.10.0",
-    "nodemon": "^3.1.0",
     "pg": "^8.11.3",
-    "stripe": "^14.13.0",
     "ts-node": "^10.9.1",
     "tslint": "^6.1.3",
     "typeorm": "^0.3.17",

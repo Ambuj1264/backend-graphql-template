@@ -97,7 +97,6 @@ export const sendMailForForgetPassword = async (
   }
 };
 
-
 export const getAllUser = async () => {
   try {
     return await Users.find({
@@ -108,6 +107,3 @@ export const getAllUser = async () => {
     throw new Error(error.message);
   }
 };
-
-
-

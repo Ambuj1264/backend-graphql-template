@@ -1,3 +1,4 @@
+import { FindDemoToolDetails } from "./demoDetails";
 
 import { verifyToken } from "./tokenVerification";
 import {
@@ -8,4 +9,5 @@ export const queryResolvers = {
   login,
   sendMailForForgetPassword,
   verifyToken,
+  FindDemoToolDetails
 };

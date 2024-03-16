@@ -26,4 +26,5 @@ type VerifyTokenResponse{
 type updatePasswordResponse{
     affected: Int 
 }
+
 `;

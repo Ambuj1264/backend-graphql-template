@@ -30,7 +30,6 @@ export const createUserByProvider = async (
   _: any,
   { email, name, image }: UserInterface // Use UserInterface instead of any for type checking
 ) => {
-  console.log(email, name, image); // Removed unnecessary string interpolation
   try {
     // Check if user already exists
     const lowercaseLoginName = email?.toLowerCase();
@@ -58,7 +57,7 @@ export const createUserByProvider = async (
         return result; // Return the created user
       }
     }
-  } catch (error:any) {
+  } catch (error: any) {
     throw new Error(error.message); // Throw error message
   }
 };

@@ -23,7 +23,7 @@ const contactSchema = new mongoose.Schema(
       enum: ["1", "2"], // Possible values for role field // 1 for the admin , 2 for the user
       default: "2",
     },
-    image:{
+    image: {
       type: String
     }
    

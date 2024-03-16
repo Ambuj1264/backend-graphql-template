@@ -1,3 +1,4 @@
+import { createDemoDetails } from "./demoDetails";
 
 import { createUser, fogetPassword, changePassword, createUserByProvider } from "./user/login";
 export const mutationResolvers = {
@@ -5,4 +6,5 @@ export const mutationResolvers = {
   fogetPassword,
   createUserByProvider,
   changePassword,
+  createDemoDetails
 };
